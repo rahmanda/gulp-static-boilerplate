@@ -1,2 +1,2 @@
 $ ->
-    console.log 'app init'
+  console.log $('body')

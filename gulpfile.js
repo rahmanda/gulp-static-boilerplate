@@ -12,40 +12,30 @@ gulp.task('normalize', function(){
 gulp.task('scripts', function() {
     gulp.src(['src/coffee/**/*.coffee'])
         .pipe(coffee().on('error', function(err){
-            gutil.log(gutil.colors.red(err))
+            gutil.log(gutil.colors.red(err));
         }))
         .pipe(gulp.dest('build/js'));
 });
 
-gulp.task('styles', function() {
+gulp.task('styles', ['normalize'], function() {
     gulp.src(['src/sass/**/*.scss'])
         .pipe(sass().on('error', function(err){
             gutil.log(gutil.colors.red('Error in SASS syntax'));
         }))
         .pipe(gulp.dest('build/css'));
-    gulp.run('normalize');
 });
 
 gulp.task('content', function() {
     gulp.src(['src/jade/**/*.jade', '!src/jade/layouts/**'])
         .pipe(jade().on('error', function(err){
-            gutil.log(gutil.colors.red(err))
+            gutil.log(gutil.colors.red(err));
         }))
-        .pipe(gulp.dest('build'))
+        .pipe(gulp.dest('build'));
 });
 
 
-gulp.task('default', function() {
-  gulp.run('scripts', 'styles', 'content');
-
-  gulp.watch('src/coffee/**', function(event) {
-    gulp.run('scripts');
-  });
-  gulp.watch('src/sass/**', function(event) {
-    gulp.run('styles');
-  });
-  gulp.watch('src/jade/**', function(event) {
-    gulp.run('content');
-  });
-
+gulp.task('default', ['scripts', 'styles', 'content'], function() {
+  gulp.watch('src/coffee/**', ['scripts']);
+  gulp.watch('src/sass/**', ['styles']);
+  gulp.watch('src/jade/**', ['content']);
 });

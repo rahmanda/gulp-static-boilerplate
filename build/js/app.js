@@ -1,6 +1,6 @@
 (function() {
   $(function() {
-    return console.log('app init');
+    return console.log($('body'));
   });
 
 }).call(this);
