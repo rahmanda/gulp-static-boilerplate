@@ -1,5 +1,66 @@
 extends layouts/master
 
 block content
+  button.btn.btn--review Review Anda
+  .modal
+    .modal__panel
+      .btn.btn--close x
+      .modal__header
+        h2 Review Barang
 
-    h1 Gulp-Static-Boilerplate-bla-pa
+      .modal__body
+        ul.reviews.show
+          li.review
+            .product__name MURAH MERIAH !!! Ps3 Fat Sony Hdd 60giga+Games
+            .review__badge +
+            .review__status 
+              button.btn--write Tulis Review
+            
+          li.review
+            .product__name MURAH MERIAH !!! Ps3 Fat Sony Hdd 60giga+Games
+            .review__badge +
+            .review__status 
+              button.btn--write Tulis Review
+            
+          li.review
+            .product__name MURAH MERIAH !!! Ps3 Fat Sony Hdd 60giga+Games
+            .review__badge +
+            .review__status 
+              button.btn--write Ubah Review
+            
+          li.review
+            .product__name MURAH MERIAH !!! Ps3 Fat Sony Hdd 60giga+Games
+            .review__badge +
+            .review__status 
+              button.btn--write Tulis Review
+            
+          li.review
+            .product__name MURAH MERIAH !!! Ps3 Fat Sony Hdd 60giga+Games
+            .review__badge +
+            .review__status 
+              button.btn--write Ubah Review
+            
+          li.review
+            .product__name MURAH MERIAH !!! Ps3 Fat Sony Hdd 60giga+Games
+            .review__badge +
+            .review__status
+              button.btn--write Tulis Review
+            
+          li.review
+            .product__name MURAH MERIAH !!! Ps3 Fat Sony Hdd 60giga+Games
+            .review__badge +
+            .review__status
+              button.btn--write Ubah Review
+        .form--review
+          .product__name MURAH MERIAH !!! Ps3 Fat Sony Hdd 60giga+Games
+          aside.product__image
+            .img
+          form.review__compose(name='review-compose', method='post')
+            .boolean
+              .ok Mateng
+              .not-ok Busuk
+            textarea(name='textarea', placeholder='berikan review terhadap barang ini')
+            .compose__action
+              button.btn--send(type='submit') Kirim Review
+
+      .modal__action

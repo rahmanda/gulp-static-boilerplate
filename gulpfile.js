@@ -26,7 +26,7 @@ gulp.task('styles', ['normalize'], function() {
 });
 
 gulp.task('content', function() {
-    gulp.src(['src/jade/**/*.jade', '!src/jade/layouts/**'])
+    gulp.src(['src/jade/**/*.jade', '!src/jade/layouts/**', '!src/jade/partials/**'])
         .pipe(jade().on('error', function(err){
             gutil.log(gutil.colors.red(err));
         }))
